@@ -37,7 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #third party app
+    'rest_framework',
+    'rest_framework_simplejwt',
+
+    #user defined app
+    'accounts',
+    'carts',
+    'orders',
+    'payment',
+    'products',
+    'category',
+    'users',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -67,6 +86,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
+AUTH_USER_MODEL = 'users.CustomUser'
+
 
 
 # Database
